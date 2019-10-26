@@ -1,0 +1,28 @@
+{
+  "javascript.validate.enable": false,
+  "javascript.format.enable": false,
+
+  "editor.formatOnSave": true,
+
+  "prettier.eslintIntegration": false,
+  "prettier.tslintIntegration": true,
+
+  "tslint.autoFixOnSave": true,
+  "tslint.enable": true,
+
+  "cSpell.words": [
+    "Formik",
+    "Submenu",
+    "Swal",
+    "Topbar",
+    "gainsboro",
+    "instock",
+    "offcanvas",
+    "persistor",
+    "simplebar",
+    "slugify",
+    "subnav",
+    "tabcontent"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
