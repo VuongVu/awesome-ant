@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import cookieSession from 'cookie-session';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import express, { Request, Response } from 'express';
+import express, { Response } from 'express';
 import helmet from 'helmet';
 import LRUCache from 'lru-cache';
 import logger from 'morgan';
@@ -93,12 +93,12 @@ app
  * NB: make sure to modify this to take into account anything that should trigger
  * an immediate page change (e.g a locale stored in req.session)
  */
-function getCacheKey(req: Request) {
+function getCacheKey(req: any) {
   return `${req.url}`;
 }
 
 async function renderAndCache(
-  req: Request,
+  req: any,
   res: Response,
   pagePath: string,
   queryParams?: any,

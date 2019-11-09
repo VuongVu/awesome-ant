@@ -60,7 +60,7 @@ const nextConfig = {
         ...(typeof origExternals[0] === 'function' ? [] : origExternals),
       ];
 
-      config.module.rules.unshift({
+      conf.module.rules.unshift({
         test: antStyles,
         use: 'null-loader',
       });

@@ -3,18 +3,16 @@
   "javascript.format.enable": false,
 
   "editor.formatOnSave": true,
-
-  "prettier.eslintIntegration": false,
-  "prettier.tslintIntegration": true,
-
+  
   "tslint.autoFixOnSave": true,
   "tslint.enable": true,
 
   "cSpell.words": [
-    "Formik",
+    "Sider",
     "Submenu",
     "Swal",
     "Topbar",
+    "antd",
     "gainsboro",
     "instock",
     "offcanvas",
