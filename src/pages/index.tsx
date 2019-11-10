@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { NextPage } from 'next';
 
 import { Card } from 'antd';
-import Layout from '../components/common/layout';
+import Layout from 'components/common/layout';
 
 interface IHomePageProps {}
 

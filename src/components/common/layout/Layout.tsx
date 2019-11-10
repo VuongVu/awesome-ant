@@ -23,7 +23,7 @@ export default memo(({ title, children }: ILayoutProps) => (
     <Layout className="main-layout">
       <Sider />
       <Layout>
-        <Content>{children}</Content>
+        <Content style={{ padding: '0 50px' }}>{children}</Content>
         <Footer />
       </Layout>
     </Layout>

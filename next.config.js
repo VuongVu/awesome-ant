@@ -8,9 +8,6 @@ const fs = require('fs');
 const path = require('path');
 
 const nextConfig = {
-  cssLoaderOptions: {
-    url: false,
-  },
   lessLoaderOptions: {
     javascriptEnabled: true,
   },
@@ -85,7 +82,6 @@ module.exports = (phase) => {
     const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
     const withSize = require('next-size');
     const withLess = require('@zeit/next-less');
-    const withCSS = require('@zeit/next-css');
 
     // fix: prevents error when .css files are required by node
     if (typeof require !== 'undefined') {
@@ -93,7 +89,7 @@ module.exports = (phase) => {
       require.extensions['.css'] = (file) => {};
     }
 
-    return withCSS(withLess(withSize(withBundleAnalyzer(nextConfig))));
+    return withLess(withSize(withBundleAnalyzer(nextConfig)));
   }
 
   return nextConfig;
