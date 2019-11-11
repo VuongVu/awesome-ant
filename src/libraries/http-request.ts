@@ -8,7 +8,7 @@ const client = axios.create({
 });
 
 // Request Wrapper with default success/error actions
-export const request = async (configs: AxiosRequestConfig) => {
+export default async (configs: AxiosRequestConfig) => {
   const onSuccess = (response: AxiosResponse<any>) => response.data;
 
   const onError = (error: any) =>
@@ -21,18 +21,3 @@ export const request = async (configs: AxiosRequestConfig) => {
     return onError(error);
   }
 };
-
-export const GET = async (configs: AxiosRequestConfig) =>
-  request({ method: 'GET', ...configs });
-
-export const POST = async (configs: AxiosRequestConfig) =>
-  request({ method: 'POST', ...configs });
-
-export const PUT = async (configs: AxiosRequestConfig) =>
-  request({ method: 'PUT', ...configs });
-
-export const PATCH = async (configs: AxiosRequestConfig) =>
-  request({ method: 'PATCH', ...configs });
-
-export const DELETE = async (configs: AxiosRequestConfig) =>
-  request({ method: 'DELETE', ...configs });

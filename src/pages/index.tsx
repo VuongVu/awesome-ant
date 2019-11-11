@@ -1,17 +1,16 @@
 import React, { memo } from 'react';
 import { NextPage } from 'next';
+import { Button } from '@blueprintjs/core';
 
-import { Card } from 'antd';
 import Layout from 'components/common/layout';
 
-interface IHomePageProps {}
-
-const HomePage: NextPage<IHomePageProps> = () => {
+const HomePage: NextPage = () => {
   return (
     <Layout>
-      <Card title="Default size card" style={{ width: 300, margin: 20 }}>
-        <p>Card content</p>
-      </Card>
+      <div>Home Page</div>
+      <Button className="docs-wiggle" icon="refresh">
+        {'Click to wiggle'}
+      </Button>
     </Layout>
   );
 };
