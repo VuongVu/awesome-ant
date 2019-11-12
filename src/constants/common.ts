@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 // Environment variables
 export const NODE_ENV = process.env.NODE_ENV;
 export const IS_DEV = NODE_ENV !== 'production';

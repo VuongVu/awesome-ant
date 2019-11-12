@@ -11,10 +11,6 @@ import App from 'next/app';
 import 'styles/index.scss';
 
 class MyApp extends App<any> {
-  constructor(props: any) {
-    super(props);
-  }
-
   public render() {
     const { Component, pageProps } = this.props;
 

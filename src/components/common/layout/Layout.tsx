@@ -1,12 +1,12 @@
 import React, { memo, ReactNode } from 'react';
 import NextHead from 'next/head';
 
-interface ILayoutProps {
+interface LayoutProps {
   children?: ReactNode;
   title?: string;
 }
 
-export default memo(({ title, children }: ILayoutProps) => (
+export default memo(({ title, children }: LayoutProps) => (
   <>
     <NextHead>
       <title>{title || `Awesome Note`}</title>

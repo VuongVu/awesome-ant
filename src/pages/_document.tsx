@@ -22,7 +22,7 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <meta name="author" content={`Vuong Vu`} />
+          <meta name="author" content="Vuong Vu" />
           <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
         </Head>
         <body>

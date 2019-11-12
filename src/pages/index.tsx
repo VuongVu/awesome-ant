@@ -9,7 +9,7 @@ const HomePage: NextPage = () => {
     <Layout>
       <div>Home Page</div>
       <Button className="docs-wiggle" icon="refresh">
-        {'Click to wiggle'}
+        Click to wiggle
       </Button>
     </Layout>
   );
