@@ -9,7 +9,7 @@ interface LayoutProps {
 export default memo(({ title, children }: LayoutProps) => (
   <>
     <NextHead>
-      <title>{title || `Awesome Note`}</title>
+      <title>{title || `Awesome`}</title>
     </NextHead>
 
     {children}
