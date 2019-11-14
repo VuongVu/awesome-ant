@@ -6,10 +6,19 @@ const {
 const Dotenv = require('dotenv-webpack');
 const fs = require('fs');
 const path = require('path');
+const lessToJS = require('less-vars-to-js');
+
+const themeVariables = lessToJS(
+  fs.readFileSync(path.resolve(__dirname, './styles/index.less'), 'utf8'),
+);
 
 const nextConfig = {
   cssLoaderOptions: {
     url: false,
+  },
+  lessLoaderOptions: {
+    javascriptEnabled: true,
+    modifyVars: themeVariables,
   },
   analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
   analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
@@ -42,6 +51,27 @@ const nextConfig = {
       }),
     ];
 
+    if (isServer) {
+      const antStyles = /antd\/.*?\/style.*?/;
+      const origExternals = [...conf.externals];
+      conf.externals = [
+        (context, request, callback) => {
+          if (request.match(antStyles)) return callback();
+          if (typeof origExternals[0] === 'function') {
+            origExternals[0](context, request, callback);
+          } else {
+            callback();
+          }
+        },
+        ...(typeof origExternals[0] === 'function' ? [] : origExternals),
+      ];
+
+      conf.module.rules.unshift({
+        test: antStyles,
+        use: 'null-loader',
+      });
+    }
+
     // Webpack 4 doesn't minify out of the box
     // https://spectrum.chat/?t=9f9f43b8-ec8b-45e5-a8e3-5b57a62e9e67
     if (
@@ -60,16 +90,15 @@ module.exports = (phase) => {
   if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
     const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
     const withSize = require('next-size');
-    const withSass = require('@zeit/next-sass');
-    const withCSS = require('@zeit/next-css');
+    const withLess = require('@zeit/next-less');
 
     // fix: prevents error when .css files are required by node
     if (typeof require !== 'undefined') {
-      require.extensions['.scss'] = (file) => {};
+      require.extensions['.less'] = (file) => {};
       require.extensions['.css'] = (file) => {};
     }
 
-    return withCSS(withSass(withSize(withBundleAnalyzer(nextConfig))));
+    return withLess(withSize(withBundleAnalyzer(nextConfig)));
   }
 
   return nextConfig;

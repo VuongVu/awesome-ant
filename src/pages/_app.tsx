@@ -8,8 +8,6 @@ import App from 'next/app';
 
 // import configureStore from '../redux/configureStore';
 
-import 'styles/index.scss';
-
 class MyApp extends App<any> {
   public render() {
     const { Component, pageProps } = this.props;
