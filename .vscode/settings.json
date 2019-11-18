@@ -1,7 +1,4 @@
 {
-  "javascript.validate.enable": false,
-  "javascript.format.enable": false,
-
   "editor.formatOnSave": true,
   
   "tslint.autoFixOnSave": true,
