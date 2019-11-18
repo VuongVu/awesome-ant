@@ -1,6 +1,9 @@
 import React, { memo, ReactNode } from 'react';
 import NextHead from 'next/head';
 
+import { Layout } from 'antd';
+import Sidebar from './Sidebar';
+
 interface LayoutProps {
   children?: ReactNode;
   title?: string;
@@ -12,6 +15,8 @@ export default memo(({ title, children }: LayoutProps) => (
       <title>{title || `Awesome`}</title>
     </NextHead>
 
-    {children}
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sidebar /> {children}
+    </Layout>
   </>
 ));
