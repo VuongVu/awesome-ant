@@ -1,25 +1,29 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { memo, useEffect, useState, useCallback, useMemo } from 'react';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
 import { Layout, Menu, Icon, Avatar } from 'antd';
+import { ClickParam } from 'antd/lib/menu';
 
 import { RootState } from 'reducers/index';
 import { CREATE_NOTE_URL, NOTES_URL } from 'constants/routes';
 
 import { makeSidebarSelector } from './selector';
-import { sidebarSelected, sidebarCollapsed } from './slice';
+import { sidebarCollapsed } from './slice';
 
 const { Sider } = Layout;
 
 type SidebarProps = {
     sidebar?: ReturnType<typeof makeSidebarSelector>;
-    onSidebarSelected: typeof sidebarSelected;
     onSidebarCollapsed: typeof sidebarCollapsed;
 };
 
-const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarSelected, onSidebarCollapsed }) => {
-    const [collapsed, setCollapsed] = useState(true);
+const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarCollapsed }) => {
+    const { pathname } = useRouter();
+    const [collapsed, setCollapsed] = useState(sidebar?.collapsed);
+    const [menuSelectedKey, setMenuSelectedKey] = useState('');
     const sidebarItems = useMemo(
         () => [
             {
@@ -63,18 +67,30 @@ const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarSelected, onSidebarColla
     );
 
     useEffect(() => {
-        sidebar?.collapsed && setCollapsed(sidebar.collapsed);
-    }, [sidebar]);
+        const setActiveMenu = () => {
+            const menuItemKey = getMenuItemKey();
+            setMenuSelectedKey(menuItemKey);
+        };
+
+        setActiveMenu();
+    }, [pathname]);
+
+    const getMenuItemKey = useCallback(() => {
+        const itemIndex = sidebarItems.findIndex((item) => item.url === pathname);
+        return itemIndex !== -1 ? sidebarItems[itemIndex].key : '';
+    }, [pathname]);
 
     const handleCollapse = useCallback((state: boolean) => {
         onSidebarCollapsed({ collapsed: state });
         setCollapsed(state);
     }, []);
 
-    const handleMenuSelected = useCallback((key: string, url: string) => {
-        sidebar?.selectedKey !== key && onSidebarSelected({ selectedKey: key });
-        Router.push(url);
-    }, []);
+    const handleMenuSelected = useCallback(
+        (param: ClickParam, url: string) => {
+            menuSelectedKey !== param.key && Router.push(url);
+        },
+        [pathname, menuSelectedKey],
+    );
 
     return (
         <>
@@ -86,14 +102,11 @@ const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarSelected, onSidebarColla
                         Vũ
                     </Avatar>
                 </div>
-                <Menu
-                    theme="dark"
-                    mode="inline"
-                    defaultSelectedKeys={[sidebar?.selectedKey.toString() || '']}>
+                <Menu theme="dark" mode="inline" selectedKeys={[menuSelectedKey]}>
                     {sidebarItems.map((item) => (
                         <Menu.Item
                             key={item.key}
-                            onClick={() => handleMenuSelected(item.key, item.url)}>
+                            onClick={(param) => handleMenuSelected(param, item.url)}>
                             <Icon type={item.icon} style={{ fontSize: '16px' }} />
                             <span>{item.title}</span>
                         </Menu.Item>
@@ -114,9 +127,6 @@ const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarSelected, onSidebarColla
 const mapStateToProps = (state: RootState) => ({ sidebar: makeSidebarSelector(state) });
 
 const mapDispatchToProps = (dispatch: any) =>
-    bindActionCreators(
-        { onSidebarSelected: sidebarSelected, onSidebarCollapsed: sidebarCollapsed },
-        dispatch,
-    );
+    bindActionCreators({ onSidebarCollapsed: sidebarCollapsed }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
