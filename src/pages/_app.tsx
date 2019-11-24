@@ -9,20 +9,20 @@ import App from 'next/app';
 // import configureStore from '../redux/configureStore';
 
 class MyApp extends App<any> {
-  public render() {
-    const { Component, pageProps } = this.props;
+    public render() {
+        const { Component, pageProps } = this.props;
 
-    return (
-      // <Provider store={store}>
-      //   <PersistGate
-      //     loading={<Component {...pageProps} />}
-      //     persistor={this.persistor}
-      //   >
-      <Component {...pageProps} />
-      //   </PersistGate>
-      // </Provider>
-    );
-  }
+        return (
+            // <Provider store={store}>
+            //   <PersistGate
+            //     loading={<Component {...pageProps} />}
+            //     persistor={this.persistor}
+            //   >
+            <Component {...pageProps} />
+            //   </PersistGate>
+            // </Provider>
+        );
+    }
 }
 
 export default MyApp;

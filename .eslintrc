@@ -1,37 +1,45 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "project": "./tsconfig.json"
     },
-    "project": "./tsconfig.json"
-  },
-  "plugins": ["@typescript-eslint", "react-hooks"],
-  "extends": [
-    "airbnb",
-    "eslint:recommended",
-    "plugin:import/recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint"
-  ],
-  "rules": {
-    "@typescript-eslint/restrict-plus-operands": "error",
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/no-explicit-any": 0,
+    "plugins": ["@typescript-eslint", "redux-saga", "react-hooks"],
+    "extends": [
+        "airbnb",
+        "eslint:recommended",
+        "plugin:import/recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier",
+        "prettier/react",
+        "prettier/@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/restrict-plus-operands": "error",
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-explicit-any": 0,
 
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
 
-    "react/display-name": 0,
-    "react/jsx-filename-extension": 0,
-    "react/jsx-props-no-spreading": 0,
+        "react/display-name": 0,
+        "react/jsx-filename-extension": 0,
+        "react/jsx-props-no-spreading": 0,
 
-    "import/no-unresolved": 0,
-    "import/prefer-default-export": 0
-  }
+        "import/no-unresolved": 0,
+        "import/prefer-default-export": 0
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
+    }
 }

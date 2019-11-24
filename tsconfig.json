@@ -6,7 +6,8 @@
     "lib": ["dom", "es2017"],
     "baseUrl": ".",
     "paths": {
-      "components/*": ["./src/components/*"]
+      "components/*": ["./src/components/*"],
+      "constants/*": ["./src/constants/*"]
     },
     "moduleResolution": "node",
     "strict": true,
@@ -28,7 +29,7 @@
   "exclude": ["node_modules", "dist", "static", ".next", "out", "next.config.js"],
   "include": [
     "next-env.d.ts", 
-    "**/*.ts",
-    "**/*.tsx"
+    "**/src/**/*.ts",
+    "**/src/**/*.tsx",
   ]
 }
