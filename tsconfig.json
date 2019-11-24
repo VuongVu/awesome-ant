@@ -3,11 +3,13 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
       "components/*": ["./src/components/*"],
-      "constants/*": ["./src/constants/*"]
+      "constants/*": ["./src/constants/*"],
+      "store/*": ["./src/store/*"],
+      "reducers/*": ["./src/reducers/*"],
     },
     "moduleResolution": "node",
     "strict": true,

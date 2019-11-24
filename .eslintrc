@@ -31,9 +31,12 @@
         "react/display-name": 0,
         "react/jsx-filename-extension": 0,
         "react/jsx-props-no-spreading": 0,
+        "react/prop-types": 0,
 
         "import/no-unresolved": 0,
-        "import/prefer-default-export": 0
+        "import/prefer-default-export": 0,
+
+        "no-unused-expressions": "off"
     },
     "settings": {
         "import/resolver": {
