@@ -24,6 +24,7 @@
         "@typescript-eslint/restrict-plus-operands": "error",
         "@typescript-eslint/explicit-function-return-type": 0,
         "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-use-before-define": 0,
 
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
@@ -31,9 +32,12 @@
         "react/display-name": 0,
         "react/jsx-filename-extension": 0,
         "react/jsx-props-no-spreading": 0,
+        "react/prop-types": 0,
 
         "import/no-unresolved": 0,
-        "import/prefer-default-export": 0
+        "import/prefer-default-export": 0,
+
+        "no-unused-expressions": "off"
     },
     "settings": {
         "import/resolver": {
