@@ -16,7 +16,7 @@ import { sidebarCollapsed } from './slice';
 const { Sider } = Layout;
 
 type SidebarProps = {
-    sidebar?: ReturnType<typeof makeSidebarSelector>;
+    sidebar: ReturnType<typeof makeSidebarSelector>;
     onSidebarCollapsed: typeof sidebarCollapsed;
 };
 
@@ -24,7 +24,7 @@ const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarCollapsed }) => {
     const { pathname } = useRouter();
     const [collapsed, setCollapsed] = useState(sidebar?.collapsed);
     const [menuSelectedKey, setMenuSelectedKey] = useState('');
-    const sidebarItems = useMemo(
+    const sidebarMenuItems = useMemo(
         () => [
             {
                 key: '1',
@@ -76,8 +76,8 @@ const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarCollapsed }) => {
     }, [pathname]);
 
     const getMenuItemKey = useCallback(() => {
-        const itemIndex = sidebarItems.findIndex((item) => item.url === pathname);
-        return itemIndex !== -1 ? sidebarItems[itemIndex].key : '';
+        const itemIndex = sidebarMenuItems.findIndex((item) => item.url === pathname);
+        return itemIndex !== -1 ? sidebarMenuItems[itemIndex].key : '';
     }, [pathname]);
 
     const handleCollapse = useCallback((state: boolean) => {
@@ -103,7 +103,7 @@ const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarCollapsed }) => {
                     </Avatar>
                 </div>
                 <Menu theme="dark" mode="inline" selectedKeys={[menuSelectedKey]}>
-                    {sidebarItems.map((item) => (
+                    {sidebarMenuItems.map((item) => (
                         <Menu.Item
                             key={item.key}
                             onClick={(param) => handleMenuSelected(param, item.url)}>
