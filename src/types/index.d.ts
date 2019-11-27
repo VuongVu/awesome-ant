@@ -1,6 +1,7 @@
 import { Reducer, Store } from 'redux';
 
 import { RootState } from 'reducers/index';
+import PostReducer from 'components/posts/slice';
 
 export interface InjectedStore extends Store {
     injectedReducers: any;
@@ -9,12 +10,16 @@ export interface InjectedStore extends Store {
 }
 
 export interface InjectReducerParams {
-    key: keyof RootState;
+    key: keyof AppState;
     reducer: Reducer<any, any>;
 }
 
 export interface InjectSagaParams {
-    key: keyof RootState;
+    key: keyof AppState;
     saga: () => IterableIterator<any>;
     mode?: string | undefined;
+}
+
+export interface AppState extends RootState {
+    posts: ReturnType<typeof PostReducer>;
 }

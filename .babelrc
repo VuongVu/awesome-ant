@@ -19,7 +19,9 @@
                     "constants": "./src/constants",
                     "store": "./src/store",
                     "reducers": "./src/reducers",
-                    "types": "./src/types"
+                    "sagas": "./src/sagas",
+                    "types": "./src/types",
+                    "libraries": "./src/libraries"
                 }
             }
         ]
