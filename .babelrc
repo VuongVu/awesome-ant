@@ -18,7 +18,8 @@
                     "components": "./src/components",
                     "constants": "./src/constants",
                     "store": "./src/store",
-                    "reducers": "./src/reducers"
+                    "reducers": "./src/reducers",
+                    "types": "./src/types"
                 }
             }
         ]

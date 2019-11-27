@@ -10,6 +10,7 @@
       "constants/*": ["./src/constants/*"],
       "store/*": ["./src/store/*"],
       "reducers/*": ["./src/reducers/*"],
+      "types/*": ["./src/types/*"]
     },
     "moduleResolution": "node",
     "strict": true,

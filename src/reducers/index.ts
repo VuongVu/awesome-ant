@@ -2,10 +2,15 @@ import { combineReducers } from 'redux';
 
 import sidebarReducer from 'components/common/layout/Sidebar/slice';
 
-const rootReducer = combineReducers({
-    sidebar: sidebarReducer,
-});
+const createReducer = (injectedReducers = {}) => {
+    const rootReducer = combineReducers({
+        sidebar: sidebarReducer,
+        ...injectedReducers,
+    });
 
-export type RootState = ReturnType<typeof rootReducer>;
+    return rootReducer;
+};
 
-export default rootReducer;
+export type RootState = ReturnType<ReturnType<typeof createReducer>>;
+
+export default createReducer;
