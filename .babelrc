@@ -1,22 +1,29 @@
 {
-  "presets": ["next/babel"],
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": true
-      }
-    ],
-    [
-      "module-resolver",
-      {
-        "root": ["./"],
-        "alias": {
-          "styles": "./styles",
-          "components": "./src/components"
-        }
-      }
+    "presets": ["next/babel"],
+    "plugins": [
+        ["@babel/plugin-proposal-optional-chaining"],
+        [
+            "import",
+            {
+                "libraryName": "antd",
+                "style": true
+            }
+        ],
+        [
+            "module-resolver",
+            {
+                "root": ["./"],
+                "alias": {
+                    "styles": "./styles",
+                    "components": "./src/components",
+                    "constants": "./src/constants",
+                    "store": "./src/store",
+                    "reducers": "./src/reducers",
+                    "sagas": "./src/sagas",
+                    "types": "./src/types",
+                    "libraries": "./src/libraries"
+                }
+            }
+        ]
     ]
-  ]
 }

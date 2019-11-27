@@ -2,15 +2,13 @@ import React from 'react';
 import { NextPage } from 'next';
 
 import Layout from 'components/common/layout';
-import Posts from 'components/posts';
 
-const Home: NextPage = () => {
+const CreateNote: NextPage = () => {
     return (
         <Layout>
-            <div>Home Page</div>
-            <Posts />
+            <div>Create Note Page</div>
         </Layout>
     );
 };
 
-export default Home;
+export default CreateNote;
