@@ -2,6 +2,7 @@ import React, { memo, ReactNode } from 'react';
 import NextHead from 'next/head';
 
 import { Layout } from 'antd';
+
 import Sidebar from './Sidebar';
 
 type LayoutProps = {

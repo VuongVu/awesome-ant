@@ -1,5 +1,5 @@
-import PostReducer from 'components/posts/slice';
+import { reducer as SidebarReducer } from 'components/common/layout/Sidebar/slice';
 
 export interface AppState extends RootState {
-    posts: ReturnType<typeof PostReducer>;
+    sidebar: ReturnType<typeof SidebarReducer>;
 }
