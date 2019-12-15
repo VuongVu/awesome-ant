@@ -10,7 +10,7 @@ type LayoutProps = {
     title?: string;
 };
 
-export default memo(({ title, children }: LayoutProps) => (
+export default memo<LayoutProps>(({ title, children }) => (
     <>
         <NextHead>
             <title>{title || `Awesome`}</title>
