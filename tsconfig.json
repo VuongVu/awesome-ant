@@ -4,15 +4,12 @@
     "module": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "components/*": ["./src/components/*"],
       "constants/*": ["./src/constants/*"],
-      "store/*": ["./src/store/*"],
-      "reducers/*": ["./src/reducers/*"],
-      "sagas/*": ["./src/sagas/*"],
+      "utils/*": ["./src/utils/*"],
       "types/*": ["./src/types/*"],
-      "libraries/*": ["./src/libraries/*"],
     },
     "moduleResolution": "node",
     "strict": true,
@@ -27,13 +24,14 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "isolatedModules": true,
-    "removeComments": false,
+    "removeComments": true,
     "resolveJsonModule": true,
     "preserveConstEnums": true
   },
   "exclude": ["node_modules", "dist", "static", ".next", "out", "next.config.js"],
   "include": [
     "next-env.d.ts", 
+    "server/*.ts",
     "**/src/**/*.ts",
     "**/src/**/*.tsx",
   ]

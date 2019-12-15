@@ -9,7 +9,7 @@ const Notes: NextPage = () => {
         <Layout>
             <div>Notes Page</div>
             <Link href="/">
-                <a>Back To Home</a>
+                <p>Back To Home</p>
             </Link>
         </Layout>
     );

@@ -2,6 +2,7 @@ import React, { memo, ReactNode } from 'react';
 import NextHead from 'next/head';
 
 import { Layout } from 'antd';
+
 import Sidebar from './Sidebar';
 
 type LayoutProps = {
@@ -9,7 +10,7 @@ type LayoutProps = {
     title?: string;
 };
 
-export default memo(({ title, children }: LayoutProps) => (
+export default memo<LayoutProps>(({ title, children }) => (
     <>
         <NextHead>
             <title>{title || `Awesome`}</title>

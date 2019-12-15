@@ -1,12 +1,17 @@
 import React from 'react';
-import App from 'next/app';
+import App, { AppProps } from 'next/app';
+import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 // import withReduxSaga from 'next-redux-saga';
 
-import configureStore from 'store/index';
+import configureStore from '../configureStore';
 
-class MyApp extends App<any> {
+type MyAppProps = {
+    store: Store;
+};
+
+class MyApp extends App<AppProps & MyAppProps> {
     public render() {
         const { Component, pageProps, store } = this.props;
 

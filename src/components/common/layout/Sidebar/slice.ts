@@ -8,7 +8,7 @@ type SidebarCollapse = {
 
 type SidebarState = SidebarCollapse;
 
-const initialState: SidebarState = {
+export const initialState: SidebarState = {
     collapsed: false,
 };
 
@@ -25,4 +25,4 @@ const sidebarSlice = createSlice({
 
 export const { sidebarCollapsed } = sidebarSlice.actions;
 
-export default sidebarSlice.reducer;
+export const { reducer } = sidebarSlice;

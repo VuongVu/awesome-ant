@@ -1,7 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { RootState } from 'reducers/index';
+import { AppState } from 'types/redux-state';
 
-const sidebarSelector = (state: RootState) => state?.sidebar;
+import { initialState } from './slice';
+
+const sidebarSelector = (state: AppState) => state?.sidebar || initialState;
 
 export const makeSidebarSelector = createSelector(sidebarSelector, (sidebarState) => sidebarState);
