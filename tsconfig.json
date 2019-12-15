@@ -4,7 +4,7 @@
     "module": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "components/*": ["./src/components/*"],
       "constants/*": ["./src/constants/*"],
@@ -27,13 +27,14 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "isolatedModules": true,
-    "removeComments": false,
+    "removeComments": true,
     "resolveJsonModule": true,
     "preserveConstEnums": true
   },
   "exclude": ["node_modules", "dist", "static", ".next", "out", "next.config.js"],
   "include": [
     "next-env.d.ts", 
+    "server/*.ts",
     "**/src/**/*.ts",
     "**/src/**/*.tsx",
   ]

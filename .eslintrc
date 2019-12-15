@@ -1,13 +1,20 @@
 {
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
+        "ecmaVersion": 2019,
+        "sourceType": "module",
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
             "jsx": true
         },
         "project": "./tsconfig.json"
     },
-    "plugins": ["@typescript-eslint", "redux-saga", "react-hooks"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "plugins": ["@typescript-eslint", "redux-saga", "react-hooks", "prettier"],
     "extends": [
         "airbnb",
         "eslint:recommended",
@@ -26,6 +33,9 @@
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/no-use-before-define": 0,
 
+        "redux-saga/no-yield-in-race": 2,
+        "redux-saga/yield-effects": 2,
+
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
 
@@ -36,8 +46,13 @@
 
         "import/no-unresolved": 0,
         "import/prefer-default-export": 0,
+        "import/extensions": 0,
 
-        "no-unused-expressions": "off"
+        "no-unused-expressions": "off",
+        "no-param-reassign": [
+            "error",
+            { "props": true, "ignorePropertyModificationsForRegex": ["^state"] }
+        ]
     },
     "settings": {
         "import/resolver": {

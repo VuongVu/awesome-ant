@@ -23,7 +23,7 @@ const Posts = memo(({ posts, loadPostList }: PostsProps) => {
 
     useEffect(() => {
         loadPostList();
-    }, []);
+    }, [loadPostList]);
 
     useEffect(() => {
         posts && console.log(posts);
