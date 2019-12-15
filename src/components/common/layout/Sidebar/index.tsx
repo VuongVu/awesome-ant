@@ -2,33 +2,25 @@
 import React, { memo, useEffect, useState, useCallback, useMemo } from 'react';
 import Router, { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import { injectReducer } from 'redux-injectors';
 
 import { Layout, Menu, Icon, Avatar } from 'antd';
 import { ClickParam } from 'antd/lib/menu';
 
 import { useReduxSelector } from 'utils/hooks';
 
-import { sidebarMenuItems, KEY_REDUCER } from './constant';
+import { sidebarMenuItems } from './constant';
 import { makeSidebarSelector } from './selector';
-import { sidebarCollapsed, reducer } from './slice';
+import { sidebarCollapsed } from './slice';
 
 const { Sider } = Layout;
 
 const Sidebar = memo(() => {
-    injectReducer({ key: KEY_REDUCER, reducer });
-
     const dispatch = useDispatch();
     const sidebarState = useReduxSelector(makeSidebarSelector);
     const { pathname } = useRouter();
-    const [collapsed, setCollapsed] = useState(false);
     const [menuSelectedKey, setMenuSelectedKey] = useState('');
 
     const menuItems = useMemo(() => sidebarMenuItems, []);
-
-    useEffect(() => {
-        setCollapsed(sidebarState?.collapsed);
-    }, [sidebarState]);
 
     useEffect(() => {
         const setActiveMenu = () => {
@@ -46,7 +38,6 @@ const Sidebar = memo(() => {
 
     const handleCollapse = useCallback((state: boolean) => {
         dispatch(sidebarCollapsed({ collapsed: state }));
-        setCollapsed(state);
     }, []);
 
     const handleMenuSelected = useCallback(
@@ -58,7 +49,11 @@ const Sidebar = memo(() => {
 
     return (
         <>
-            <Sider collapsible collapsed={collapsed} onCollapse={handleCollapse} width={150}>
+            <Sider
+                collapsible
+                collapsed={sidebarState.collapsed}
+                onCollapse={handleCollapse}
+                width={150}>
                 <div className="avatarContainer">
                     <Avatar
                         style={{ backgroundColor: '#00A2AE', verticalAlign: 'middle' }}
