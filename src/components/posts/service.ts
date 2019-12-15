@@ -1,4 +1,4 @@
-import httpClient from 'libraries/http-request';
+import httpClient from 'src/utils/http-request';
 
 const POSTS_API = 'https://jsonplaceholder.typicode.com/posts';
 

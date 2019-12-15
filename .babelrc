@@ -17,11 +17,8 @@
                     "styles": "./styles",
                     "components": "./src/components",
                     "constants": "./src/constants",
-                    "store": "./src/store",
-                    "reducers": "./src/reducers",
-                    "sagas": "./src/sagas",
-                    "types": "./src/types",
-                    "libraries": "./src/libraries"
+                    "utils": "./src/utils",
+                    "types": "./src/types"
                 }
             }
         ]

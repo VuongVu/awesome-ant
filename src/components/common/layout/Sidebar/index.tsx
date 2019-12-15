@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { Layout, Menu, Icon, Avatar } from 'antd';
 import { ClickParam } from 'antd/lib/menu';
 
-import { RootState } from 'reducers/index';
 import { CREATE_NOTE_URL, NOTES_URL } from 'constants/routes';
 
 import { makeSidebarSelector } from './selector';
@@ -124,7 +123,7 @@ const Sidebar = memo<SidebarProps>(({ sidebar, onSidebarCollapsed }) => {
     );
 });
 
-const mapStateToProps = (state: RootState) => ({ sidebar: makeSidebarSelector(state) });
+const mapStateToProps = (state: any) => ({ sidebar: makeSidebarSelector(state) });
 
 const mapDispatchToProps = (dispatch: any) =>
     bindActionCreators({ onSidebarCollapsed: sidebarCollapsed }, dispatch);

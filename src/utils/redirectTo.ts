@@ -1,7 +1,7 @@
 import Router from 'next/router';
 
-import { BASE_URL } from '../constants/routes';
-import { HttpStatus } from '../constants/http-status';
+import { BASE_URL } from 'constants/routes';
+import { HttpStatus } from 'constants/http-status';
 
 export default (destination: any, { res, status }: any = {}) => {
     if (res) {

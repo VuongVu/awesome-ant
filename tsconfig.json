@@ -8,11 +8,8 @@
     "paths": {
       "components/*": ["./src/components/*"],
       "constants/*": ["./src/constants/*"],
-      "store/*": ["./src/store/*"],
-      "reducers/*": ["./src/reducers/*"],
-      "sagas/*": ["./src/sagas/*"],
+      "utils/*": ["./src/utils/*"],
       "types/*": ["./src/types/*"],
-      "libraries/*": ["./src/libraries/*"],
     },
     "moduleResolution": "node",
     "strict": true,

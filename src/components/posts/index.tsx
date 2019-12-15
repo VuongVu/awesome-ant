@@ -1,10 +1,9 @@
 import React, { useEffect, memo } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 
-import { AppState } from 'types/index';
-import useInjectReducer from 'reducers/injectReducer';
-import useInjectSaga from 'sagas/injectSaga';
+import { AppState } from 'types/redux-state';
 
 import { loadPosts } from './action';
 import { makePostsSelector } from './selector';
