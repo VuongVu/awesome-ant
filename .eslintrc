@@ -7,14 +7,14 @@
             "experimentalObjectRestSpread": true,
             "jsx": true
         },
-        "project": "./tsconfig.json"
+        "project": "./tsconfig.eslint.json"
     },
     "env": {
         "browser": true,
         "node": true,
         "es6": true
     },
-    "plugins": ["@typescript-eslint", "redux-saga", "react-hooks"],
+    "plugins": ["@typescript-eslint", "react", "redux-saga", "react-hooks"],
     "extends": [
         "airbnb",
         "eslint:recommended",
@@ -44,6 +44,7 @@
         "react/jsx-filename-extension": 0,
         "react/jsx-props-no-spreading": 0,
         "react/prop-types": 0,
+        "react/no-unescaped-entities": 0,
 
         "import/no-unresolved": 0,
         "import/prefer-default-export": 0,
@@ -61,6 +62,9 @@
             "node": {
                 "paths": ["src"]
             }
+        },
+        "react": {
+            "version": "detect"
         }
     }
 }
