@@ -42,7 +42,7 @@ const Error: NextPage<ErrorProps> = ({ statusCode }) => {
                 <ErrorResult
                     status="403"
                     title="403 - Forbidden"
-                    subTitle="You don't have permission to to access. Please contact support to get more information."
+                    subTitle="Sorry, you are not authorized to access this page."
                 />
             );
         case HttpStatus.INTERNAL_SERVER_ERROR:

@@ -53,7 +53,10 @@ const Sidebar = memo(() => {
                 collapsible
                 collapsed={sidebarState.collapsed}
                 onCollapse={handleCollapse}
-                width={150}>
+                width={150}
+                style={{
+                    height: '100vh',
+                }}>
                 <div className="avatarContainer">
                     <Avatar
                         style={{ backgroundColor: '#00A2AE', verticalAlign: 'middle' }}

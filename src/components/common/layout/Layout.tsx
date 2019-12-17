@@ -3,21 +3,25 @@ import NextHead from 'next/head';
 
 import { Layout } from 'antd';
 
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 
 type LayoutProps = {
     children?: ReactNode;
     title?: string;
+    hasSider?: boolean;
 };
 
-export default memo<LayoutProps>(({ title, children }) => (
+const { Content } = Layout;
+
+export default memo<LayoutProps>(({ title, hasSider = true, children }) => (
     <>
         <NextHead>
             <title>{title || `Awesome`}</title>
         </NextHead>
 
-        <Layout style={{ minHeight: '100vh' }}>
-            <Sidebar /> {children}
+        <Layout>
+            {hasSider && <Sidebar />}
+            <Content>{children}</Content>
         </Layout>
     </>
 ));

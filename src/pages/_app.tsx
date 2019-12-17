@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ErrorInfo } from 'react';
 import App, { AppProps } from 'next/app';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
@@ -7,11 +7,17 @@ import withRedux from 'next-redux-wrapper';
 
 import configureStore from '../configureStore';
 
-type MyAppProps = {
+import 'styles/custom.less';
+
+type MyAppProps = AppProps & {
     store: Store;
 };
 
-class MyApp extends App<AppProps & MyAppProps> {
+class MyApp extends App<MyAppProps> {
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+        super.componentDidCatch(error, errorInfo);
+    }
+
     public render() {
         const { Component, pageProps, store } = this.props;
 
