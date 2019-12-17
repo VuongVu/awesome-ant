@@ -7,6 +7,8 @@ import withRedux from 'next-redux-wrapper';
 
 import configureStore from '../configureStore';
 
+import 'styles/custom.less';
+
 type MyAppProps = AppProps & {
     store: Store;
 };

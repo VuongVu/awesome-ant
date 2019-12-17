@@ -3,7 +3,7 @@ import NextHead from 'next/head';
 
 import { Layout } from 'antd';
 
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 
 type LayoutProps = {
     children?: ReactNode;
