@@ -6,6 +6,8 @@ import { Row } from 'antd';
 import Layout from 'components/common/layout';
 import LoginForm from 'components/auth/loginForm';
 
+import withApollo from 'utils/withApollo';
+
 const Login: NextPage = () => {
     return (
         <Layout title="Login" hasSider={false}>
@@ -16,4 +18,4 @@ const Login: NextPage = () => {
     );
 };
 
-export default Login;
+export default withApollo(Login);
