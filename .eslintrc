@@ -14,7 +14,7 @@
         "node": true,
         "es6": true
     },
-    "plugins": ["@typescript-eslint", "react", "redux-saga", "react-hooks"],
+    "plugins": ["@typescript-eslint", "react", "redux-saga", "react-hooks", "prettier"],
     "extends": [
         "airbnb",
         "eslint:recommended",

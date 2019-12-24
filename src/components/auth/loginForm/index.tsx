@@ -1,18 +1,9 @@
-import React, { memo, useEffect } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import React, { memo } from 'react';
+// import gql from 'graphql-tag';
 
 import { Form, Icon, Input, Button } from 'antd';
 
 const LoginForm = memo(() => {
-    const { data } = useQuery(allUsersQuery, {
-        notifyOnNetworkStatusChange: true,
-    });
-
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
-
     return (
         <>
             <Form>
@@ -39,19 +30,19 @@ const LoginForm = memo(() => {
     );
 });
 
-const allUsersQuery = gql`
-    query getAllUsers {
-        getAllUsers {
-            id
-            fullName
-            email
-            role
-            status
-            createdAt
-            updatedAt
-        }
-    }
-`;
+// const allUsersQuery = gql`
+//     query getAllUsers {
+//         getAllUsers {
+//             id
+//             fullName
+//             email
+//             role
+//             status
+//             createdAt
+//             updatedAt
+//         }
+//     }
+// `;
 
 // export default graphql(allUsersQuery, {
 //     props: ({ data }) => ({ data }),
