@@ -14,7 +14,7 @@
         "node": true,
         "es6": true
     },
-    "plugins": ["@typescript-eslint", "react", "redux-saga", "react-hooks"],
+    "plugins": ["@typescript-eslint", "react", "redux-saga", "react-hooks", "prettier"],
     "extends": [
         "airbnb",
         "eslint:recommended",
@@ -33,6 +33,14 @@
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/no-use-before-define": 0,
         "@typescript-eslint/unbound-method": 0,
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "args": "none",
+                "ignoreRestSiblings": false
+            }
+        ],
 
         "redux-saga/no-yield-in-race": 2,
         "redux-saga/yield-effects": 2,

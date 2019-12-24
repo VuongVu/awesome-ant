@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+// import gql from 'graphql-tag';
 
 import { Form, Icon, Input, Button } from 'antd';
 
@@ -29,4 +30,22 @@ const LoginForm = memo(() => {
     );
 });
 
-export default Form.create({ name: 'login_form' })(LoginForm);
+// const allUsersQuery = gql`
+//     query getAllUsers {
+//         getAllUsers {
+//             id
+//             fullName
+//             email
+//             role
+//             status
+//             createdAt
+//             updatedAt
+//         }
+//     }
+// `;
+
+// export default graphql(allUsersQuery, {
+//     props: ({ data }) => ({ data }),
+// })(LoginForm);
+
+export default LoginForm;
