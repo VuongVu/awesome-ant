@@ -1,12 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { memo, useEffect, useState, useCallback, useMemo } from 'react';
 import Router, { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Layout, Menu, Icon, Avatar } from 'antd';
 import { ClickParam } from 'antd/lib/menu';
-
-import { useReduxSelector } from 'utils/hooks';
 
 import { sidebarMenuItems } from './constant';
 import { makeSidebarSelector } from './selector';
@@ -16,7 +14,7 @@ const { Sider } = Layout;
 
 const Sidebar = memo(() => {
     const dispatch = useDispatch();
-    const sidebarState = useReduxSelector(makeSidebarSelector);
+    const sidebarState = useSelector(makeSidebarSelector);
     const { pathname } = useRouter();
     const [menuSelectedKey, setMenuSelectedKey] = useState('');
 
